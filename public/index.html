@@ -7,5 +7,9 @@
 </head>
 <body>
   <h1 data-controller="example"></h1>
+  <div data-controller="hello">
+    <input data-action="change->hello#sayHello" type="text" placeholder="Coloca alguma coisa" size="60" data-hello-target="name">
+    <button data-action="click->hello#greet">Greet</button>
+  </div>
 </body>
 </html>
