@@ -10,7 +10,10 @@ We recommend [remixing `stimulus-starter` on Glitch](https://glitch.com/edit/#!/
 
 Or, if you'd prefer to work from the comfort of your own text editor, you'll need to clone and set up `stimulus-starter`:
 
-```
+```javascript
+$ asdf install nodejs 14.17.3
+$ asdf local nodejs 14.17.3
+
 $ git clone https://github.com/hotwired/stimulus-starter.git
 $ cd stimulus-starter
 $ yarn install
