@@ -33,17 +33,20 @@ export default class extends Controller {
       }
     }
 
-    if (this.hasTooltipTarget) {
-      this.showTooltip('Copied!', 800);
+    if (this.hasTooltipTarget || this.hasUnlockTarget) {
+      this.showTooltip('Copied!', 800, 2000);
     }
   }
 
-  showTooltip(text, duration) {
+  showTooltip(text, tooltipDuration, unlockDuration) {
     this.tooltipTarget.textContent = text;
-    this.unlockTarget.textContent = text;
+
     setTimeout(() => {
       this.tooltipTarget.textContent = 'Copy to clipboard';
+    }, tooltipDuration);
+
+    setTimeout(() => {
       this.element.classList.remove(this.supportedClass);
-    }, duration);
+    }, unlockDuration);
   }
 }
