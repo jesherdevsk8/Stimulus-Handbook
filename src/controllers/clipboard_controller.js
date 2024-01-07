@@ -1,7 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "source", "tooltip" ]
+  static targets = [ "source", "tooltip", "unlock" ]
+  static classes = [ "supported" ]
 
   connect() {
     this.generateAndSetPIN();
@@ -27,6 +28,9 @@ export default class extends Controller {
   copy() {
     if (['input'].includes(this.sourceTarget.tagName.toLowerCase())) {
       navigator.clipboard.writeText(this.sourceTarget.value)
+      if ("clipboard" in navigator) {
+        this.element.classList.add(this.supportedClass);
+      }
     }
 
     if (this.hasTooltipTarget) {
@@ -36,8 +40,10 @@ export default class extends Controller {
 
   showTooltip(text, duration) {
     this.tooltipTarget.textContent = text;
+    this.unlockTarget.textContent = text;
     setTimeout(() => {
       this.tooltipTarget.textContent = 'Copy to clipboard';
+      this.element.classList.remove(this.supportedClass);
     }, duration);
   }
 }

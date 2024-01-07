@@ -22,14 +22,13 @@
       </div>
     </div>
 
-    <div class="mb-3" data-controller="clipboard">
+    <div class="mb-3" data-controller="clipboard" data-clipboard-supported-class="clipboard--supported">
       <div class="input-group">
         <span class="input-group-text">PIN:</span>
-        <input data-clipboard-target="source" type="text" class="form-control" readonly disabled>
-        <button type="button "data-action="click->clipboard#copy" class="btn btn-secondary" data-clipboard-target="tooltip">
-          Copy to clipboard
-        </button>
+        <input data-clipboard-target="source" type="text" class="form-control" readonly>
+        <button type="button" data-action="click->clipboard#copy" class="btn btn-secondary" data-clipboard-target="tooltip">Copy to Clipboard</button>
       </div>
+      <span class="clipboard-button" data-clipboard-target="unlock">Unlocked!</span>
     </div>
 
     <!-- Initialize tooltip functionality -->
