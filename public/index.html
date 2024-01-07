@@ -31,6 +31,17 @@
       <span class="clipboard-button" data-clipboard-target="unlock">Unlocked!</span>
     </div>
 
+    <<div data-controller="slideshow" data-slideshow-index-value="1">
+      <button type="button" data-action="slideshow#previous" class="btn custom-button"> ← </button>
+    
+      <div data-slideshow-target="slide" class="slide">🐵</div>
+      <div data-slideshow-target="slide" class="slide">🙈</div>
+      <div data-slideshow-target="slide" class="slide">🙉</div>
+      <div data-slideshow-target="slide" class="slide">🙊</div>
+    
+      <button type="button" data-action="slideshow#next" class="btn custom-button"> → </button>
+    </div>
+
     <!-- Initialize tooltip functionality -->
     <script>
       document.addEventListener('DOMContentLoaded', function () {

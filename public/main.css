@@ -9,3 +9,22 @@ body {
 .clipboard--supported .clipboard-button {
   display: initial;
 }
+
+.custom-button {
+  background-color: brown;
+  color: aliceblue;
+}
+
+.custom-button:hover {
+  background-color: rgb(131, 28, 28);
+  color: aliceblue;
+}
+
+[data-controller="slideshow"] {
+  display: flex;
+  align-items: center;
+}
+
+.slide {
+  margin: 0 5px;
+}
