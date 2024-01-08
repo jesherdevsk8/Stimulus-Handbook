@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+function generateControllerFile(name) {
+  const content = `import { Controller } from "@hotwired/stimulus";
+
+export default class extends Controller {
+  connect() {
+    // Your code here
+  }
+}
+`;
+  const targetDirectory = './src/controllers';
+  const fileName = `${name}_controller.js`;
+  const filePath = path.join(targetDirectory, fileName);
+
+  fs.writeFileSync(filePath, content);
+
+  console.log(`Generated controller file at: ${filePath}`);
+}
+
+const args = process.argv.slice(2);
+const runIndex = args.indexOf('generate');
+
+if (runIndex !== -1 && runIndex + 1 < args.length) {
+  const controllerName = args[runIndex + 1];
+  generateControllerFile(controllerName.toLowerCase());
+} else {
+  console.log('Usage: bin/sitmulus generate <controllerName>');
+}
